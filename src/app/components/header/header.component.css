@@ -14,6 +14,18 @@ header {
   gap: 1rem;
 }
 
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.location i {
+  color: var(--accent-color);
+}
+
 button {
   background: none;
   border: none;
@@ -135,18 +147,9 @@ button:hover {
   gap: 0.5rem;
 }
 
-.user-btn img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
 .flag-icon {
   width: 24px;
   height: 16px;
   object-fit: cover;
-}
-
-.flag {
-  font-size: 1.2rem;
+  border-radius: 2px;
 }

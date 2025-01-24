@@ -1,9 +1,6 @@
 <div class="sidebar" [class.collapsed]="isCollapsed">
   <div class="logo">
     <img [src]="logoPath" alt="Logo">
-    <button class="toggle-btn" (click)="toggleSidebar()">
-      <i class="fas" [class.fa-bars]="isCollapsed" [class.fa-times]="!isCollapsed"></i>
-    </button>
   </div>
   
   <nav>
@@ -28,4 +25,8 @@
       <span *ngIf="!isCollapsed">Users</span>
     </a>
   </nav>
+
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <i class="fas" [class.fa-chevron-left]="!isCollapsed" [class.fa-bars]="isCollapsed"></i>
+  </button>
 </div>

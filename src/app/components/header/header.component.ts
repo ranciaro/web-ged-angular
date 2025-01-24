@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserPreferencesService } from '../../services/user-preferences.service';
 
+interface Language {
+  code: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -15,6 +20,8 @@ export class HeaderComponent {
   showNotificationsDropdown = false;
   showUserDropdown = false;
   isDarkMode = true;
+
+  currentLanguage: Language = { code: 'br', name: 'Português' };
 
   notifications = [
     {
@@ -44,13 +51,13 @@ export class HeaderComponent {
     }
   ];
 
-  languages = [
-    { code: 'pt-BR', name: 'Português', flag: '🇧🇷' },
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' },
-    { code: 'hi', name: 'हिंदी', flag: '🇮🇳' }
+  languages: Language[] = [
+    { code: 'br', name: 'Português' },
+    { code: 'us', name: 'English' },
+    { code: 'es', name: 'Español' },
+    { code: 'fr', name: 'Français' },
+    { code: 'cn', name: '中文' },
+    { code: 'in', name: 'हिंदी' }
   ];
 
   units = [
@@ -80,8 +87,8 @@ export class HeaderComponent {
     this.showUnitDropdown = false;
   }
 
-  selectLanguage(language: any) {
-    // Handle language selection
+  selectLanguage(language: Language) {
+    this.currentLanguage = language;
     this.showLanguageDropdown = false;
   }
 }

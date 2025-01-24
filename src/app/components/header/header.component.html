@@ -12,14 +12,19 @@
     </div>
   </div>
 
+  <div class="location">
+    <i class="fas fa-map-marker-alt"></i>
+    <span>Avaré - SP</span>
+  </div>
+
   <div class="right">
     <div class="language-selector">
       <button (click)="toggleDropdown('language')">
-        <img src="assets/flags/br.png" alt="Português" class="flag-icon">
+        <img [src]="'https://flagcdn.com/' + currentLanguage.code.toLowerCase() + '.svg'" [alt]="currentLanguage.name" class="flag-icon">
       </button>
       <div class="dropdown language-dropdown" *ngIf="showLanguageDropdown">
-        <div class="dropdown-item" *ngFor="let lang of languages">
-          <span class="flag">{{lang.flag}}</span>
+        <div class="dropdown-item" *ngFor="let lang of languages" (click)="selectLanguage(lang)">
+          <img [src]="'https://flagcdn.com/' + lang.code.toLowerCase() + '.svg'" [alt]="lang.name" class="flag-icon">
           <span>{{lang.name}}</span>
         </div>
       </div>
@@ -47,8 +52,8 @@
 
     <div class="user-info">
       <button (click)="toggleDropdown('user')" class="user-btn">
+        <i class="lucide lucide-circle-user h-5 w-5"></i>
         <span>Renan</span>
-        <img src="https://via.placeholder.com/40" alt="User avatar">
       </button>
       <div class="dropdown user-dropdown" *ngIf="showUserDropdown">
         <div class="dropdown-item">
